@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'NanumSquare';
+    src: local('font/NanumSquare'),
+        url('../font/NanumSquareR.ttf'),
+        url('../font/NanumSquareR.eot'),
+        url('../font/NanumSquareR.woff');
+}
+@font-face {
+    font-family: 'NanumSquareL';
+    src: url('../font/NanumSquareL.ttf'),
+        url('../font/NanumSquareL.eot'),
+        url('../font/NanumSquareL.woff');
+}
+@font-face {
+    font-family: 'NanumSquareB';
+    src: url('../font/NanumSquareB.ttf'),
+        url('../font/NanumSquareB.eot'),
+        url('../font/NanumSquareB.woff');
+}
+@font-face {
+    font-family: 'NanumSquareEB';
+    src: url('../font/NanumSquareEB.ttf'),
+        url('../font/NanumSquareEB.eot'),
+        url('../font/NanumSquareEB.woff');
+}
+html, body, div, span, p, a, del, em, img, ol, ul, li, fieldset, form, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+a{text-decoration: none; color: #f9f9f9;}
+li{list-style: none;}
+
+html, body {
+	line-height: 1;
+	min-height:100%;
+	font-family:'NanumSquare';
+}
+body {
+	background: #f9f9f9;
+}
