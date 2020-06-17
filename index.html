@@ -12,31 +12,262 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css" />
+    <script type="text/javascript" src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
     <script type="text/javascript">
-        $(function(){});
+        $(function(){
+            $("#loading button").click(function(){
+                $(".loading_bar").addClass("Step1");
+                $("#loading").fadeOut(1500);
+                $("#Step1").fadeIn(1800);
+                $("#Next1").fadeIn();
+            });
+            $("#Next1").click(function(){
+                $("#Step1").fadeOut();
+                $("#Step2").addClass("Next1");
+                $("#Next1").hide();
+                $("#Next2").fadeIn();
+            });
+            $("#Next2").click(function(){
+                $("#Step2").fadeOut();
+                $("#Next2").hide();
+                $("#Step3").addClass("Next2");
+                $("#panorama").addClass("Next2");
+                $("#Next3").show();
+            });
+            
+            $("#Next3").click(function(){
+                $("#Step3").fadeOut();
+                $("#Next3").hide();
+                $("#Step4").addClass("Next3");
+                $("#Next4").show();
+            });
+        });
     </script>
     
     <style type="text/css">
         /*Default setting*/
-        #loading{position: relative; width: 100%; height: 100vh; text-align: center; background: #f9f9f9}
-        #loading p{position: relative; top: 20vh; font-size: 24px; font-weight: bold; color: #333;}
-        #loading button{position: relative; top: 25vh; font-size: 24px; font-weight: bold; color: #333; border-radius: 10px; border: none; line-height: 50px; width: 400px; background: #ccc;}
+        *{margin: 0; padding: 0; background-attachment: fixed;}
+        h1,h2,h3,h4,h5,p{cursor: default;}
+        html,body{width: 100%; height: 100vh; overflow: hidden; background: url(./images/bg.jpg) center center no-repeat; background-size: cover;}
+        #loading{position: relative; width: 100%; height: 100vh; text-align: center; background: url(./images/bg.jpg) center center no-repeat; background-size: cover; transition: 1s;}
+        #loading.Next{left: -100%;}
+        #loading p{position: relative; top: 15vh; font-size: 20px; font-weight: bold; color: #333; line-height: 40px;}
+        #loading button{position: relative; top: 15vh; font-size: 24px; font-weight: bold; color: #f9f9f9; border-radius: 10px; border: none; line-height: 50px; width: 400px; background: #333; transition: .5s; box-shadow: -350px 0px 0px inset #9f9f9f; cursor: pointer;}
+        #loading button:hover{box-shadow: 350px 0px 0px inset #9f9f9f; color: #333;}
         
-        .loading_bar{ width:550px; margin: 0 auto; height: 550px; background: steelblue; background-size: cover; border-radius: 50%; position: relative; box-shadow: inset 0 0 30px 0 rgba(0,0,0,.5), 0 4px 10px 0 rgba(0,0,0,.5); overflow: hidden; top: 15vh;}
+        .loading_bar{ width:550px; margin: 0 auto; height: 550px; background: url(./images/pattern.jpg)center center no-repeat; background-size: contain; border-radius: 50%; position: relative; box-shadow: inset 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9); overflow: hidden; top: 10vh; transition: 1s;}
+        .loading_bar.Step1{transform: scale(5) rotate(360deg); opacity: 0;}
         
         .loading_bar:before, 
-        .loading_bar:after{ content:''; position: absolute; width:500px; height: 500px; top:-250px; left: 0; background-color: #000;}.loading_bar:before{ border-radius: 45%; background:rgba(255,255,255,.7); animation:wave 5s linear infinite;}
+        .loading_bar:after{ content:''; position: absolute; width:500px; height: 500px; top:-300px; left: 0; background-color: #000;}.loading_bar:before{ border-radius: 45%; background:rgba(255,255,255,.7); animation:wave 5s linear infinite;}
         .loading_bar:after{ border-radius: 35%; background:rgba(255,255,255,.3); animation:wave 5s linear infinite;}
          
         @keyframes wave{0%{transform: rotate(0);}100%{transform: rotate(360deg);}}
+        
+        #Step1{position: relative; width: 100%; height: 100vh; text-align: center; background: url(./images/bg.jpg) center center no-repeat; background-size: cover; overflow: hidden; transition: 5s;}
+        #Step1 h2{position: relative; text-align: left; line-height: 100px; text-indent: 3%; font-size: 30px;background: rgba(0,0,0,0.7); top: 0; color: #f89b00;}
+        .company{position: relative; width: 50%; height: 100vh; top: 20vh; left: 5%;}
+        .companyBg{position: relative; width: 100%; height: 50vh; background: url(./images/company_bg.png) top center no-repeat; background-size: cover; animation:Bg 60s linear infinite;border-radius: 10px; box-shadow: inset 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9);}
+        .company p a{line-height: 5vh; font-weight: bold; color: #333;}
+        .company p{line-height: 5vh; font-weight: bold; color: #333;}
+        .company2{position: absolute; right: 0%; top: 30vh; width: 50%;}
+        .company2 h3{line-height: 5vh; font-size: 24px; border-bottom: 1px solid #999; margin-top: 2vh;}
+        .company2 span{display: inline-block; font-size: 16px; width: 50%;}
+        .company2 i{display: inline-block; font-size: 16px; width: 25%;}
+        .company2 p{padding: 10px; position: relative; transition: .3s;}
+        .company2 p:hover{transform: scale(1.2);}
+        .chatBox p.fr{margin-top: 10vh; position: relative;}
+        .company2 p.Q{line-height: 3vh; text-align: left; width: 65%; font-size: 16px; background: GOLD; border-radius: 5px; position: relative; left: 4%; margin-top: 1vh; font-weight: bold;}
+        .company2 p.A{line-height: 3vh; text-align: right; width: 85%; font-size: 16px; background: #f9f9f9; border-radius: 5px; position: relative; left: 9%; margin-top: 1vh; }
+        .chatBox{position: relative; width: 50%; margin: 0 auto; background: #c6d6e3; height: 70vh; border-radius: 20px 20px 0px 0px; border: 10px solid #eee; box-shadow: inset 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9);}
+
+        
+         @keyframes Bg{0%{background:url(./images/company_bg.png) top center no-repeat; background-size: cover;}50%{background: url(./images/company_bg.png) bottom center no-repeat; background-size: cover;}100%{background: url(./images/company_bg.png) top center no-repeat;  background-size: cover;}}
+         @keyframes Bg1{0%{background-position:top center;}50%{background-position: bottom center;}100%{background-position: top center;}}
+        
+        #Next1{position: fixed; right: 0; top: 0; line-height: 100px; width: 100px;background: rgba(0,0,0,0.7); text-align: center; font-size: 40px;color: #f9f9f9; transition: .3s; display: none;}
+        #Next1:hover{color: #f89b00;}
+        
+        #Next2{position: fixed; right: 0; top: 0; line-height: 100px; width: 100px;background: rgba(0,0,0,0.7); text-align: center; font-size: 40px;color: #f9f9f9; transition: .3s; display: none;}
+        #Next2:hover{color: #f89b00;}
+        
+        #Next3{position: fixed; right: 0; top: 0; line-height: 100px; width: 100px;background: rgba(0,0,0,0.7); text-align: center; font-size: 40px;color: #f9f9f9; transition: .3s; display: none;}
+        #Next3:hover{color: #f89b00;}
+        
+        #Next4{position: fixed; right: 0; top: 0; line-height: 100px; width: 100px;background: rgba(0,0,0,0.7); text-align: center; font-size: 40px;color: #f9f9f9; transition: .3s; display: none;}
+        #Next4:hover{color: #f89b00;}
+        
+        #Step2{position: relative; width: 100%; height: 100vh; text-align: center; background: url(./images/bg.jpg) center center no-repeat; background-size: cover; overflow: hidden; left: 100%; transition: 3s;}
+        #Step2.Next1{left: 0;}
+        #Step2 h2{position: relative; text-align: left; line-height: 100px; text-indent: 3%; font-size: 30px;background: rgba(0,0,0,0.7); top: 0; color: #f89b00;}
+        
+        .ST_Dan{float: left; width: 33.33%;}
+        .ST_Dan .img1,.img2,.img3,.img4{animation:none;}
+        .ST_Dan:hover .img1{animation:Bg1 22s linear infinite;}
+        .ST_Dan:hover .img2{animation:Bg1 15s linear infinite;}
+        .ST_Dan:hover .img3{animation:Bg1 20s linear infinite;}
+        .ST_Dan:hover .img4{animation:Bg1 80s linear infinite;}
+        
+        .st2_Box1{position: relative; width: 100%; background: #eee; height: 51vh; box-shadow: 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9);}
+        .st2_Box1 img{position: relative; margin-top: 4vh;}
+        .st2_Box1 h3{line-height: 8vh;}
+        .st2_Box1 p{line-height: 3vh;}
+        .st2_Box1 h4{line-height: 3vh; font-size: 16px;}
+        .st2_Box1 h5{margin-bottom: 1vh; font-weight: normal; background-position: }
+        .st2_Box1 a{color: #333; font-weight: bold; font-size: 12px;}
+        
+        .st2_Box2{position: relative; width: 100%; background: #eee; height: 60vh; box-shadow: 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9); }
+        .st2_Box3{position: relative; width: 100%; background: #eee; height: 90vh; box-shadow: 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9); }
+        .st2_Box4{position: relative; width: 100%; background: #eee; height: 57vh; box-shadow: 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9); }
+        .st2_Box5{position: relative; width: 100%; background: #eee; height: 33vh; box-shadow: 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9); }
+        .img1{background: url(./images/staylive_1.png)top center no-repeat; background-size: cover;}
+        .img2{background: url(./images/ritz_1.png)top center no-repeat; background-size: cover;}
+        .img3{background: url(./images/electro_1.png)top center no-repeat; background-size: cover;}
+        .img4{background: url(./images/Po_1.png)top center no-repeat; background-size: cover;}
+        
+        
+         #Step3{position: absolute; width: 100%; height: 100vh; text-align: center; background: url(./images/bg.jpg) center center no-repeat; background-size: cover; overflow: hidden; top: -100%; transition: 3s;}
+        #Step3.Next2{top: 0%;}
+        #Step3 h2{position: relative; text-align: left; line-height: 100px; text-indent: 3%; font-size: 30px;background: rgba(0,0,0,0.7); top: 0; color: #f89b00;}
+        
+        #panorama { width: 50%; height: 60vh; position: fixed;   left: 0%; top: -100%; z-index: 1000; display: table; -moz-transform-origin: top left; -webkit-transform-origin: top left; -ms-transform-origin: top left; transform-origin: top left; transition: 3s; border-radius: 10px; box-shadow: 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9);}
+        #panorama.Next2{top: 200px; left: 5%;}
+        .pnlm-control{display: none !important;}
+        .pnlm-controls{display: none !important;}
+        
+        #IT_Box{width: 50%; height: auto; position: absolute; right: -8%; top:0px; text-align: left; }
+        
+        .chatBox2{position: absolute; right: 10%; top: 14vh; width: 50%;}
+        .chatBox2 h3{line-height: 5vh; font-size: 24px; border-bottom: 1px solid #999; margin-top: 2vh; text-align: center;}
+        .chatBox2 span{display: inline-block; font-size: 16px; width: 50%;}
+        .chatBox2 i{display: inline-block; font-size: 16px; width: 25%;}
+        .chatBox2 p{padding: 10px; position: relative; transition: .3s;}
+        .chatBox2 p:hover{transform: scale(1.2); z-index: 9;}
+        .chatBox2 p.fr{position: relative;}
+        .chatBox2 p.Q{line-height: 3vh; text-align: left; width: 65%; font-size: 16px; background: GOLD; border-radius: 5px; position: relative; left: 4%; margin-top: 2vh; font-weight: bold;}
+        .chatBox2 p.A{line-height: 3vh; text-align: right; width: 85%; font-size: 16px; background: #f9f9f9; border-radius: 5px; position: relative; left: 9%; margin-top: 2vh; }
+        .chatBox2{position: relative; width: 50%; margin: 0 auto; background: #c6d6e3; height: 85vh; border-radius: 20px 20px 0px 0px; border: 10px solid #eee; box-shadow: inset 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9);}
+        .chatBox2 img{width: 80%; display: block; margin: 0 auto;}
+        
+        #Step4{position: absolute; width: 100%; height: 100vh; text-align: center; background: url(./images/bg.jpg) center center no-repeat; background-size: cover; overflow: hidden; top: 100%; transition: 3s;}
+        #Step4.Next3{top: 0%;}
+        #Step4 h2{position: relative; text-align: left; line-height: 100px; text-indent: 3%; font-size: 30px;background: rgba(0,0,0,0.7); top: 0; color: #f89b00;}
+        
+        #Training_Box{width: 25%; height: auto; position: absolute; left: 5%; top:0px; text-align: left; }
+        .chatBox3{position: relative; left: 0%; top: 14vh; width: 100%;}
+        .chatBox3 h3{line-height: 5vh; font-size: 24px; border-bottom: 1px solid #999; margin-top: 2vh; text-align: center;}
+        .chatBox3 span{display: inline-block; font-size: 16px; width: 50%;}
+        .chatBox3 i{display: inline-block; font-size: 16px; width: 25%;}
+        .chatBox3 p{padding: 10px; position: relative; transition: .3s;}
+        .chatBox3 p:hover{transform: scale(1.2); z-index: 9;}
+        .chatBox3 p.fr{position: relative;}
+        .chatBox3 p.Q{line-height: 3vh; text-align: left; width: 65%; font-size: 16px; background: GOLD; border-radius: 5px; position: relative; left: 4%; margin-top: 2vh; font-weight: bold;}
+        .chatBox3 p.A{line-height: 3vh; text-align: right; width: 85%; font-size: 16px; background: #f9f9f9; border-radius: 5px; position: relative; left: 9%; margin-top: 2vh; }
+        .chatBox3{position: relative; width: 100%; margin: 0 auto; background: #c6d6e3; height: 85vh; border-radius: 20px 20px 0px 0px; border: 10px solid #eee; box-shadow: inset 0 0 30px 0 rgba(0,0,0,0.5), 0 4px 10px 0 rgba(0,0,0,0.9);}
+        .chatBox3 img{width: 80%; display: block; margin: 0 auto;}
+        
+        
     </style>
     </head>
     <body>
+   
     <div id="loading">
         <div class="loading_bar"></div>
-        <p>IIBI</p>
+        <p>(주)씨앤텍시스템즈 기술연구소</p>
+        <p>홍정화 연구원</p>
+        <p>E.mail : jh.hong@cntechsystems.com</p>
+        <p>Phone : 010_4190_3280</p>
         <button>NEXT</button>
+    </div>
+    <div id="Step1">
+           <h2><i class="far fa-building"></i> Company Introduction</h2>
+        <div class="company">
+            <div class="companyBg"></div>
+            <p><a href="http://cntechsystems.com/">(주)씨앤텍시스템즈 홈페이지</a> </p>
+        </div>
+        <div class="company2"><div class="chatBox">
+            <h3><i class="fas fa-chevron-left"></i><span>(주)씨앤텍시스템즈 기업부설연구소</span><i class="fas fa-bars"></i></h3>
+               <p class="Q fr">(주)씨앤텍시스템즈는 어떤 회사인가요?</p>
+               <p class="A">2005년 설립 되어 <strong>IBM, ETL, BI</strong> 등 솔루션 컨설팅을 수행하며,<br> 기업 시스템구축에 집중한 전문 기업입니다.</p>
+                <p class="Q">기업부설연구소가 어떤곳인가요?</p>        
+                <p class="A">유능한 전문 인력과 기술력을 바탕으로<br> 차세대 기술 개발 및 정부 협력 과제 등 IT 기술을 접목 시키며<br> 새로운 분야에 개발하고 지속적으로 연구합니다.<br>
+                 <strong>빅데이터 인공지능 디지털헬스케어</strong> 등 다양한 분야를 연구하고 개발합니다.</p>                     
+                 <p class="Q">기업부설연구소에서 어떤 일을 맡고 계신가요?</p>  
+                <p class="A"><strong>프론트엔드 개발자</strong>와 <strong>디자이너</strong>를 병행하고 있으며<br> 나아가 풀스택 개발자로 발전해 나가고 있습니다.</p>
+            </div>
+        </div>
+    <div id="Next1">
+         <i class="fas fa-chevron-right"></i>
+    </div>
+    </div>
+    <div id="Step2">
+           <h2><i class="fas fa-graduation-cap"></i> Completion Process</h2>
+           <div class="ST_Dan">
+               <div class="st2_Box1">
+                   <img src="./images/iibi_logo.png" alt="iibi">
+                   <h3> HTML5 기반 스마트콘텐츠제작자 양성 프로그램</h3>
+                   <p>2019년 06월 26일 ~ 2019년 11월 29일</p>
+                   <h4>총 제작 포트폴리오 : 5개의 웹사이트 제작</h4>
+                   <h4>한 프로젝트 당 소요 기간 : 2~3주</h4>
+                   <h4>팀 프로젝트 및 개인 프로젝트</h4>
+                   <h5>[ 아래 사진부터 순서대로 1~4번 5개의 웹사이트 중 일부 ]</h5>
+                   <h4>1. STAYALIVE 게임브로셔 반응형 웹</h4>
+                   <h4>2. RITZ HOTEL 팀프로젝트 반응형 웹</h4>
+                   <h4>3. ELECTRO MART 쇼핑몰 반응형 웹</h4>
+                   <h4>4. 포트폴리오 Parallax Scrolling 웹</h4>
+                 <a href="https://hgh0328.github.io/Portfolio/">https://hgh0328.github.io/Portfolio/</a>
+               </div>
+               <div class="st2_Box2 img1"></div>
+           </div>
+            <div class="ST_Dan">
+               <div class="st2_Box3 img2"></div>
+           </div>
+           <div class="ST_Dan">
+               <div class="st2_Box4 img3"></div><div class="st2_Box5 img4"></div>
+           </div>
+         <div id="Next2">
+         <i class="fas fa-chevron-up"></i>
+        </div>
+    </div>
+    <div id="Step3">
+           <h2><i class="fas fa-graduation-cap"></i> IT Industry</h2> 
+           <div id="panorama"></div>
+            <script>
+            var sImageFileName = "./images/bgbg2.png";
+            pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "panorama": sImageFileName
+            });
+     </script>
+         <div id="IT_Box">
+           <div class="chatBox2">
+            <h3><i class="fas fa-chevron-left"></i><span>CnT 기업부설연구소</span><i class="fas fa-bars"></i></h3>
+               <p class="Q fr">연구소의 근무환경은 어떤가요?</p>
+               <p class="A"><img src="./images/cobg2.jpg" alt="cobg2" width="100%">일반적인 에이전시나 SI와 다르게 연구소는<br><strong>독립적인 사무공관</strong>이 필요합니다.</p>
+                <p class="Q">근무 시간과 급여체계는 좋은가요?</p>        
+                <p class="A">근무 시간은 <strong>오전 09:00 ~ 오후 06:00</strong> 입니다.<br>급여 체계는 <strong>기본급에 인센티브제</strong>를 더하는 방식입니다.</p>                   
+            </div>
+         </div>
+         <div id="Next3">
+         <i class="fas fa-chevron-down"></i>          
+        </div>
+    </div>
+    
+    <div id="Step4">
+           <h2><i class="fas fa-graduation-cap"></i> Training</h2> 
+         <div id="Training_Box">
+           <div class="chatBox3">
+            <h3><i class="fas fa-chevron-left"></i><span>IT업계의 트랜드</span><i class="fas fa-bars"></i></h3>
+               <p class="Q fr">IT 업계에서 앞으로의 트렌드는 어떤건가요?</p>
+               <p class="A"><strong>Angular.js React.js Vue.js</strong> 와 같은<br> 오픈 소스 기반의 프레임워크가 떠오르고 있습니다.</p>
+                <p class="Q">프론트엔드 개발자 준비할 점?</p>        
+                <p class="A"><img src="./images/blog.png" alt="" width="100%">개발자라면 블로그 작성이나 본인의 게시판을 만들어<br>자신이 공부한 지식을 공유하는것이 좋습니다.</p>                   
+            </div>
+         </div>
+         <div id="Next4">
+         <i class="fas fa-chevron-right"></i>          
+        </div>
     </div>
 
 

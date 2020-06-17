@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <title>A simple example</title>
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css" />
+    <script type="text/javascript" src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
+    <style>
+        #panorama {
+            width: 100%;
+            height: 90vh;
+            position: relative;
+            z-index: 1000;
+            display: table;
+            -moz-transform-origin: top left;
+            -webkit-transform-origin: top left;
+            -ms-transform-origin: top left;
+            transform-origin: top left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="panorama"></div>
+    <script>
+        // 아래 코드의 01.jpg 만 원하는 이미지로 교체한 후 URL 을 적어주면 됩니다
+
+        var sImageFileName = "./images/bgbg2.png";
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": sImageFileName
+        });
+    </script>
+</body>
+
+</html>
